@@ -6,22 +6,22 @@ import {
 
 export const contactData = [
   {
-    title: "Excelent Services",
+    title: "Revolutionizing Fashion",
     icon: BriefcaseIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      " Swap is at the forefront of the fashion revolution, bringing the future of shopping to your fingertips.",
   },
   {
     title: "Grow Your Market",
     icon: ChartBarIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "SWAP increases conversion rates for products with try-on enabled, which increases the number of items viewed.",
   },
   {
-    title: "Launch Time",
+    title: "Confidence Boost",
     icon: PlayIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Make informed fashion choices with confidence. We empower you to express your style without second-guessing.",
   },
 ];
 

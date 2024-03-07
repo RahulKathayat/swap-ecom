@@ -22,6 +22,11 @@ export const routes = [
     element: <SignUp />,
   },
   {
+    name: "subscribe",
+    path: "/subscription",
+    element: <SignIn />,
+  },
+  {
     name: "Docs",
     href: "https://www.material-tailwind.com/docs/react/installation",
     target: "_blank",

@@ -5,24 +5,24 @@ import {
 export const featuresData = [
   {
     color: "gray",
-    title: "Awarded Agency",
+    title: "Virtual Wardrobe",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Create your digital wardrobe by trying on a wide range of clothing items virtually. Mix and match to curate personalized outfits effortlessly.",
   },
   {
     color: "gray",
-    title: "Free Revisions",
+    title: "Accurate Sizing",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "No more guessing about sizes! Our technology ensures accurate sizing recommendations, helping you find the perfect fit every time.",
   },
   {
     color: "gray",
-    title: "Verified Company",
+    title: "Realistic Visuals",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "Experience lifelike simulations that showcase how the clothing will look and feel on you. We provide an authentic virtual try-on experience.",
   },
 ];
 

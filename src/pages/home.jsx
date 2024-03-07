@@ -29,12 +29,10 @@ export function Home() {
                 color="white"
                 className="mb-6 font-black"
               >
-                Your story starts with us.
+                Welcome to Swap, <br/> where style meets innovation!
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+                Grow your sales with Virtual Try-on and help your customers discover and buy the right clothes by adding virtual try-on to your website. Discover a new era of virtual fashion exploration with our cutting-edge virtual try-on technology.
               </Typography>
             </div>
           </div>
@@ -58,24 +56,21 @@ export function Home() {
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
-                <FingerPrintIcon className="h-8 w-8 text-white " />
+                <UsersIcon className="h-8 w-8 text-white " />
               </div>
               <Typography
                 variant="h3"
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                Why Choose Swap?
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
+                Swap is not just a virtual try-on company, it's a lifestyle.
                 <br />
                 <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                Embrace the future of fashion exploration and redefine your style with us. Join Swap today and experience the joy of hassle-free, virtual shopping. Your perfect look is just a click away!
+
               </Typography>
               <Button variant="filled">read more</Button>
             </div>
@@ -84,7 +79,7 @@ export function Home() {
                 <CardHeader floated={false} className="relative h-56">
                   <img
                     alt="Card Image"
-                    src="/img/teamwork.png"
+                    src="/img/virtualtryon.jpg"
                     className="h-full w-full"
                   />
                 </CardHeader>
@@ -95,12 +90,10 @@ export function Home() {
                     color="blue-gray"
                     className="mb-3 mt-2 font-bold"
                   >
-                    Top Notch Services
+                    Our Top Notch Services
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
+                  We enable consumers to try on garments for size, fit, and style without physically wearing the product. Our technology maps a realistic virtual representation of the product over their real-world image to show how the product would look on the customer's body.
                   </Typography>
                 </CardBody>
               </Card>
@@ -108,12 +101,10 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="px-4 pt-20 pb-48">
+      <section className="px-4 pt-20 pb-20">
         <div className="container mx-auto">
-          <PageTitle section="Our Team" heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle heading="Try our Virtual Try-On">
+            Click on the try on button below to try it now and see the difference for yourself!
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
             {teamData.map(({ img, name, position, socials }) => (
@@ -138,10 +129,8 @@ export function Home() {
       </section>
       <section className="relative bg-white py-24 px-4">
         <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+          <PageTitle section="Co-Working" heading="Build your brand">
+          SWAP increases conversion rates for products with try-on enabled, as well as increasing the number of items viewed. The combined effect increases sales on your site.
           </PageTitle>
           <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (
