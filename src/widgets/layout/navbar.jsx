@@ -75,7 +75,7 @@ export function Navbar({ brandName, routes, action }) {
             target="_blank"
           >
             <Button variant="text" size="sm" color="white" fullWidth>
-              pro version
+              pro versions
             </Button>
           </a>
           {React.cloneElement(action, {
