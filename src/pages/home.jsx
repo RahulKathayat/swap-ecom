@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Card,
   CardBody,
@@ -10,12 +10,21 @@ import {
   Textarea,
   Checkbox,
 } from "@material-tailwind/react";
-import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { FingerPrintIcon, UsersIcon,XCircleIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 
 export function Home() {
+  const [showIframe, setShowIframe] = useState(false);
+
+  const handleClickOpen = () => {
+    setShowIframe(true);
+  };
+
+  const handleClickClose = () => {
+    setShowIframe(false);
+  };
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -31,6 +40,7 @@ export function Home() {
               >
                 Welcome to Swap, <br/> where style meets innovation!
               </Typography>
+              <br/>
               <Typography variant="lead" color="white" className="opacity-80">
                 Grow your sales with Virtual Try-on and help your customers discover and buy the right clothes by adding virtual try-on to your website. Discover a new era of virtual fashion exploration with our cutting-edge virtual try-on technology.
               </Typography>
@@ -106,8 +116,24 @@ export function Home() {
           <PageTitle heading="Try our Virtual Try-On">
             Click on the try on button below to try it now and see the difference for yourself!
           </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
+          <div style={{display:"flex",flexDirection:"row" , justifyContent:"space-evenly" ,alignItems:"center",marginTop:"30px"}}>
+            <Card className="p-4">
+                <img src={'/img/apparel.png'}></img>
+                <Button className="" onClick={handleClickOpen} >Try On</Button>
+            </Card>
+            {showIframe && (
+              <div className="mt-10">
+                <Button onClick={handleClickClose}>X</Button>
+                <iframe
+                  src="https://virtualtryon-rust.vercel.app/"
+                  width="430"
+                  height="660"
+                  title="example iframe"
+                  
+                />
+          </div>
+            )}
+            {/* {teamData.map(({ img, name, position, socials }) => (
               <TeamCard
                 key={name}
                 img={img}
@@ -123,7 +149,7 @@ export function Home() {
                   </div>
                 }
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
