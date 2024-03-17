@@ -1,62 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Typography } from '@material-tailwind/react';
 import SubscriptionCard from '@/widgets/cards/subscription-card';
 import { Footer } from '@/widgets/layout';
-const companies = [
-  {
-    id: '2569ce0d517a7f06d3ea1f24',
-    createdAt: '27/03/2019',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    logo: '/assets/logos/logo-dropbox.png',
-    title: 'Dropbox',
-    downloads: '594',
-    price:'$9.99/month',
-    plan:'Basic Plan',
-  },
-  {
-    id: 'ed2b900870ceba72d203ec15',
-    createdAt: '31/03/2019',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    logo: '/assets/logos/logo-medium.png',
-    title: 'Medium Corporation',
-    downloads: '625',
-    price:'$19.99/month',
-    plan:'Standard Plan',
-  },
-];
+import axios from 'axios';
+
 export function Subscription() {
-  const subscriptions = [
-    {
-      id: '1',
-      createdAt: '27/03/2019',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      logo: '/assets/logos/logo-dropbox.png',
-      title: 'Dropbox',
-      downloads: '594',
-      price:'$9.99/month',
-      plan:'Basic Plan',
-    },
-    {
-      id: '2',
-      createdAt: '31/03/2019',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      logo: '/assets/logos/logo-medium.png',
-      title: 'Medium Corporation',
-      downloads: '625',
-      price:'$19.99/month',
-      plan:'Standard Plan',
-    },
-    {
-      id: '3',
-      createdAt: '31/03/2019',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      logo: '/assets/logos/logo-medium.png',
-      title: 'Medium Corporation',
-      downloads: '625',
-      price:'$29.99/month',
-      plan:'Premium Plan',
-    },
-  ];
+  // const subscriptions = [
+  //   {
+  //     id: '1',
+  //     createdAt: '27/03/2019',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  //     logo: '/assets/logos/logo-dropbox.png',
+  //     title: 'Dropbox',
+  //     downloads: '594',
+  //     price:'$9.99/month',
+  //     plan:'Basic Plan',
+  //   },
+  //   {
+  //     id: '2',
+  //     createdAt: '31/03/2019',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  //     logo: '/assets/logos/logo-medium.png',
+  //     title: 'Medium Corporation',
+  //     downloads: '625',
+  //     price:'$19.99/month',
+  //     plan:'Standard Plan',
+  //   },
+  //   {
+  //     id: '3',
+  //     createdAt: '31/03/2019',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  //     logo: '/assets/logos/logo-medium.png',
+  //     title: 'Medium Corporation',
+  //     downloads: '625',
+  //     price:'$29.99/month',
+  //     plan:'Premium Plan',
+  //   },
+  // ];
+  const [subscriptions,setSubscription] = useState([]);
+  useEffect(() =>{
+    const fetchSubscription = async () =>{
+      try{
+        const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/admin/fetchSubscription`);
+        // console.log(data.data.data);
+        setSubscription(data.data.data);
+        console.log("here is subscription listss:",data.data.data);
+      }
+      catch(e){
+        console.log(e,"error fetching subscriptions");
+      }
+    };
+    fetchSubscription();
+  },[]);
   return (
     <>
         <section className="relative block h-[12vh]">

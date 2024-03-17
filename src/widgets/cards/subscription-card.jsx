@@ -15,7 +15,7 @@ export function SubscriptionCard({ subscription}) {
           variant="h5"
           className="text-black"
         >
-            {subscription.plan}
+            {subscription.title}
         </Typography>
         <Typography
           align="center"
@@ -23,7 +23,7 @@ export function SubscriptionCard({ subscription}) {
           variant="h2"
           className="text-black"
         >
-          {subscription.price}
+          {`$${subscription.pricing}/month`}
         </Typography>
         <Typography
           align="center"
