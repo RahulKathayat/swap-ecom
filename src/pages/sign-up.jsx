@@ -5,9 +5,66 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+import axios from "axios";
 
 export function SignUp() {
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      name: '',
+      password: '',
+      submit: null
+    },
+    validationSchema: Yup.object({
+      email: Yup
+        .string()
+        .email('Must be a valid email')
+        .max(255)
+        .required('Email is required'),
+      name: Yup
+        .string()
+        .max(255)
+        .required('Name is required'),
+      password: Yup
+        .string()
+        .max(255)
+        .required('Password is required')
+        .matches(/[A-Z]/, 'At least one Uppercase letter')
+        .matches(/[!@#$%^&*(),.?":{}|<>]/, 'At least one special character')
+        .matches(/\d/, 'At least one number')
+        .min(8, 'Must be at least 8 characters'),
+    }),
+    onSubmit: async (values, helpers) => {
+      try {
+        console.log("clicked");
+        console.log(values);
+        await axios
+            .post(`${import.meta.env.VITE_BASE_URL}/v1/owner/register`, values)
+            .then((response) => {
+              console.log(response);
+              formik.resetForm();
+              alert(
+                "You have been registered successfully"
+              );
+               window.location.href = '/sign-in' ;
+            })
+            .catch((error) => {
+              console.log("Error registering the user ", error);
+              alert(
+                "Registration Failed an error occured while registering"
+              );
+            });
+      } catch (err) {
+        helpers.setStatus({ success: false });
+        helpers.setErrors({ submit: err.message });
+        helpers.setSubmitting(false);
+      }
+    }
+  });
+
   return (
     <section className="m-8 flex">
             <div className="w-2/5 h-full hidden lg:block">
@@ -21,21 +78,71 @@ export function SignUp() {
           <Typography variant="h2" className="font-bold mb-4">Join Us Today</Typography>
           <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Enter your email and password to register.</Typography>
         </div>
-        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
-          <div className="mb-1 flex flex-col gap-6">
+        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2" noValidate onSubmit={formik.handleSubmit}>
+          <div className="mb-5 flex flex-col gap-6">
             <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-              Your email
+              Your Name
             </Typography>
             <Input
+              label="Name"
+              name="name"
+              error={!!(formik.touched.name && formik.errors.name)}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.name}
               size="lg"
-              placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
             />
           </div>
-          <Checkbox
+          <div className="mb-1 flex flex-col gap-6">
+            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
+              Your Email
+            </Typography>
+            <Input
+              label="Email"
+              name="email"
+              error={(formik.touched.email && formik.errors.email)}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              type="email"
+              size="lg"
+            />
+          </div>
+          <div className="mt-5 mb-1 flex flex-col gap-6">
+            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
+              Your Password
+            </Typography>
+            <Input
+              label="Password"
+              type="password"
+              name="password"
+              error={!!(formik.touched.password && formik.errors.password)}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              size="lg"
+            />
+          </div>
+          <Typography
+              variant="small"
+              color="gray"
+              className="mt-2 flex items-center gap-3 font-normal justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="-mt-px h-8 w-8"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Use at least 8 characters, one uppercase, one lowercase, one number and one special character.
+            </Typography>
+          {/* <Checkbox
             label={
               <Typography
                 variant="small"
@@ -52,12 +159,12 @@ export function SignUp() {
               </Typography>
             }
             containerProps={{ className: "-ml-2.5" }}
-          />
-          <Button className="mt-6" fullWidth>
+          /> */}
+          <Button className="mt-6" fullWidth type="submit">
             Register Now
           </Button>
 
-          <div className="space-y-4 mt-8">
+          {/* <div className="space-y-4 mt-8">
             <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md" fullWidth>
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1156_824)">
@@ -78,7 +185,7 @@ export function SignUp() {
               <img src="/img/twitter-logo.svg" height={24} width={24} alt="" />
               <span>Sign in With Twitter</span>
             </Button>
-          </div>
+          </div> */}
           <Typography variant="paragraph" className="text-center text-blue-gray-500 font-medium mt-4">
             Already have an account?
             <Link to="/sign-in" className="text-gray-900 ml-1">Sign in</Link>
