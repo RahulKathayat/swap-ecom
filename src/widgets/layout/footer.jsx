@@ -12,7 +12,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
             {/* <Typography variant="h4" className="mb-4" color="blue-gray">
               {title}
             </Typography> */}
-            <img src="/img/logo.png" className="object-cover w-20 mb-4"/>
+            <img src="/img/swaplogoblack.png" className="object-cover w-24 mb-4"/>
             <Typography className="font-normal text-blue-gray-500 lg:w-2/5">
               {description}
             </Typography>

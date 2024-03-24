@@ -73,7 +73,7 @@ export function Navbar({ brandName, routes, action }) {
           {/* <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
             {brandName}
           </Typography> */}
-          <img src="/img/whitelogo.png" className="object-cover h-14"/>
+          <img src="/img/swapwhitelogo.png" className="object-cover h-14"/>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
