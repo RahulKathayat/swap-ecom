@@ -9,19 +9,19 @@ export const contactData = [
     title: "Revolutionizing Fashion",
     icon: BriefcaseIcon,
     description:
-      " Swap is at the forefront of the fashion revolution, bringing the future of shopping to your fingertips.",
+      "Swap envi leads the charge in the evolving world of fashion, bringing the future of shopping directly to your fingertips.",
   },
   {
     title: "Grow Your Market",
     icon: ChartBarIcon,
     description:
-      "SWAP increases conversion rates for products with try-on enabled, which increases the number of items viewed.",
+      "Swap envi boosts conversion rates for products featuring try-on capabilities, leading to an increase in the number of items viewed.",
   },
   {
     title: "Confidence Boost",
     icon: PlayIcon,
     description:
-      "Make informed fashion choices with confidence. We empower you to express your style without second-guessing.",
+      "Make fashion choices with confidence and clarity. We empower you to express your style without hesitation.",
   },
 ];
 

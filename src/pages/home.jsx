@@ -13,7 +13,7 @@ import {
 import { FingerPrintIcon, UsersIcon,XCircleIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
-import { featuresData, teamData, contactData } from "@/data";
+import { featuresData, teamData, contactData,wardrobeData } from "@/data";
 
 export function Home() {
   const [showIframe, setShowIframe] = useState(false);
@@ -34,15 +34,15 @@ export function Home() {
           <div className="flex flex-wrap items-center">
             <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
               <Typography
-                variant="h1"
+                variant="h2"
                 color="white"
-                className="mb-6 font-black"
+                className="mt-6 font-black"
               >
-                Welcome to Swap, <br/> where style meets innovation!
+                Welcome to Swap envi, <br/> where style meets innovation, and possibilities are limitless. <br/><br/>Let's swap the way you shop for fashion!
               </Typography>
               <br/>
-              <Typography variant="lead" color="white" className="opacity-80">
-                Grow your sales with Virtual Try-on and help your customers discover and buy the right clothes by adding virtual try-on to your website. Discover a new era of virtual fashion exploration with our cutting-edge virtual try-on technology.
+              <Typography variant="h6" color="white" className="mt-4 opacity-80">
+              Swap envi - A revolutionary solution designed to transform the way clothing, shoes and accesories brands engage with their customers. Swap envi empowers these brands to implement cutting-edge AI technology, enhancing their online shopping experience and driving sales like never before.
               </Typography>
             </div>
           </div>
@@ -63,6 +63,12 @@ export function Home() {
               />
             ))}
           </div>
+          <div className="mt-36">
+            <PageTitle heading="Our Mission"/>
+            <Typography className="text-center px-10 pt-2" variant="lead">
+              At Swap envi, our mission is to empower clothing brands to thrive in the digital age by providing them with the tools and technology they need to succeed. We believe in the power of innovation to drive growth and create meaningful connections between brands and their customers.
+            </Typography>
+          </div>
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
@@ -76,10 +82,10 @@ export function Home() {
                 Why Choose Swap?
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Swap is not just a virtual try-on company, it's a lifestyle.
+                Swap envi is not just a virtual try-on company, it's a lifestyle.
                 <br />
                 <br />
-                Embrace the future of fashion exploration and redefine your style with us. Join Swap today and experience the joy of hassle-free, virtual shopping. Your perfect look is just a click away!
+                Discover the future of fashion exploration and redefine your style journey with us. Join swap envi today and relish the ease of hassle-free, virtual shopping. Your perfect look is just a click away!
 
               </Typography>
               <Button variant="filled">read more</Button>
@@ -103,7 +109,7 @@ export function Home() {
                     Our Top Notch Services
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                  We enable consumers to try on garments for size, fit, and style without physically wearing the product. Our technology maps a realistic virtual representation of the product over their real-world image to show how the product would look on the customer's body.
+                  We empower consumers to try on garments for size, fit, and style without physically wearing the product. Our cutting-edge technology creates a lifelike virtual representation of the product, seamlessly overlaying it onto the customer's real-world image to showcase how the product would look on their body.
                   </Typography>
                 </CardBody>
               </Card>
@@ -111,10 +117,35 @@ export function Home() {
           </div>
         </div>
       </section>
+      <section>
+        <Typography variant="h3" className="mt-10 text-center">Why choose our Virtual Wardrobe solution ?</Typography>
+        <div className="mx-auto mt-20 mb-10 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          {wardrobeData.map(({ title, icon, description }) => (
+            <Card
+              key={title}
+              color="transparent"
+              shadow={false}
+              className="text-center text-blue-gray-900"
+            >
+              <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
+                {React.createElement(icon, {
+                  className: "w-5 h-5 text-white",
+                })}
+              </div>
+              <Typography variant="h5" color="blue-gray" className="mb-2">
+                {title}
+              </Typography>
+              <Typography className="font-normal text-blue-gray-500">
+                {description}
+              </Typography>
+            </Card>
+          ))}
+        </div>
+      </section>
       <section className="px-4 pt-20 pb-20">
         <div className="container mx-auto">
           <PageTitle heading="Try our Virtual Try-On">
-            Click on the try on button below to try it now and see the difference for yourself!
+          Click the 'Try It On' button below to experience it firsthand and witness the difference for yourself!
           </PageTitle>
           <div style={{display:"flex",flexDirection:"row" , justifyContent:"space-evenly" ,alignItems:"center",marginTop:"30px"}}>
             <Card className="p-4">
@@ -131,32 +162,15 @@ export function Home() {
                   title="example iframe"
                   
                 />
-          </div>
+              </div>
             )}
-            {/* {teamData.map(({ img, name, position, socials }) => (
-              <TeamCard
-                key={name}
-                img={img}
-                name={name}
-                position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-xl fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
-              />
-            ))} */}
           </div>
         </div>
       </section>
       <section className="relative bg-white py-24 px-4">
         <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build your brand">
-          SWAP increases conversion rates for products with try-on enabled, as well as increasing the number of items viewed. The combined effect increases sales on your site.
+          <PageTitle section="Co-Working" heading="Build your brand - with AI Powered Solutions" className="">
+          Swap envi harnesses the latest in AI technology to revolutionize your operations. Our virtual try-on feature not only increases conversion rates for products with try-on enabled but also amplifies the number of items viewed. This dynamic combination drives sales growth, minimise returns, transforming your experience with swap envi.
           </PageTitle>
           <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (

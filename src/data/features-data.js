@@ -8,21 +8,21 @@ export const featuresData = [
     title: "Virtual Wardrobe",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Create your digital wardrobe by trying on a wide range of clothing items virtually. Mix and match to curate personalized outfits effortlessly.",
+      "Build your digital closet with ease. Try on a variety of clothes virtually and mix and match to create your perfect look effortlessly.",
   },
   {
     color: "gray",
     title: "Accurate Sizing",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "No more guessing about sizes! Our technology ensures accurate sizing recommendations, helping you find the perfect fit every time.",
+      "Say goodbye to size guessing! Our technology delivers precise sizing recommendations, ensuring the perfect fit for you, every time.",
   },
   {
     color: "gray",
     title: "Realistic Visuals",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Experience lifelike simulations that showcase how the clothing will look and feel on you. We provide an authentic virtual try-on experience.",
+      "Immerse yourself in lifelike simulations that vividly depict how the clothing will look and feel on you. Step into an authentic virtual try-on experience with us.",
   },
 ];
 
