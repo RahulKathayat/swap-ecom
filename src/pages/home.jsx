@@ -20,14 +20,18 @@ export function Home() {
   const iframeRef = useRef();
 
   const sendDataToIframe = () => {
+    console.log("sending data to iframe");
     const message = 'Hello from parent!';
     if (iframeRef.current) {
+      console.log("in process ");
       iframeRef.current.contentWindow.postMessage(message, '*');
     }
+    console.log("data sent");
   };
 
   const handleClickOpen = () => {
     setShowIframe(true);
+    sendDataToIframe();
   };
 
   const handleClickClose = () => {
@@ -172,7 +176,6 @@ export function Home() {
                   onLoad={() => {
                     // Once the iframe is loaded, it's safe to access its contentWindow
                     console.log('Iframe loaded');
-                    sendDataToIframe();
                   }}
                 />
               </div>
