@@ -1,4 +1,4 @@
-import React,{useState,useRef, useEffect} from "react";
+import React,{useState,useRef, useEffect, useCallback} from "react";
 import {
   Card,
   CardBody,
@@ -19,20 +19,19 @@ export function Home() {
   const [showIframe, setShowIframe] = useState(false);
   const iframeRef = useRef(null);
 
-  const sendDataToIframe = () => {
-    const message = 'https://swap-ecom.vercel.app/img/apparel.png';
-    console.log("before sending");
+  const sendDataToIframe = useCallback(() => {
+    const message = 'Hello from parent!';
     if (iframeRef.current && iframeRef.current.contentWindow) {
-      console.log("during sending");
+      console.log("sending the message");
       iframeRef.current.contentWindow.postMessage(message, '*');
+    } else {
+      console.error('Iframe or contentWindow is not available yet.');
     }
-    console.log("done sending");
-  };
+  }, [iframeRef]);
 
   const handleClickOpen = () => {
     setShowIframe(true);
   };
-
   const handleClickClose = () => {
     setShowIframe(false);
   };
@@ -172,9 +171,8 @@ export function Home() {
                   width="430"
                   height="660"
                   title="example iframe"
-                  onLoad={() => {
-                    // Once the iframe is loaded, it's safe to access its contentWindow
-                    console.log('Iframe loaded');
+                  onLoad={()=>{
+                    console.log("iframe loaded");
                     sendDataToIframe();
                   }}
                 />
