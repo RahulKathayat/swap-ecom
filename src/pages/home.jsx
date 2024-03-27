@@ -21,9 +21,12 @@ export function Home() {
 
   const sendDataToIframe = () => {
     const message = 'https://swap-ecom.vercel.app/img/apparel.png';
-    if (iframeRef.current) {
+    console.log("before sending");
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      console.log("during sending");
       iframeRef.current.contentWindow.postMessage(message, '*');
     }
+    console.log("done sending");
   };
 
   const handleClickOpen = () => {
