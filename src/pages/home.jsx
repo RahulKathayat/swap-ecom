@@ -20,13 +20,10 @@ export function Home() {
   const iframeRef = useRef(null);
 
   const sendDataToIframe = () => {
-    console.log("sending data to iframe");
-    const message = 'Hello from parent!';
+    const message = 'https://swap-ecom.vercel.app/img/apparel.png';
     if (iframeRef.current) {
-      console.log("in process ");
       iframeRef.current.contentWindow.postMessage(message, '*');
     }
-    console.log("data sent");
   };
 
   const handleClickOpen = () => {
