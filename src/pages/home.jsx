@@ -17,17 +17,12 @@ import { featuresData, teamData, contactData,wardrobeData } from "@/data";
 
 export function Home() {
   const [showIframe, setShowIframe] = useState(false);
-  const iframeRef = useRef(null);
-
-  const sendDataToIframe = useCallback(() => {
+  
+  const sendDataToIframe = () => {
     const message = 'Hello from parent!';
-    if (iframeRef.current && iframeRef.current.contentWindow) {
-      console.log("sending the message");
-      iframeRef.current.contentWindow.postMessage(message, 'https://virtualtryon-rust.vercel.app/');
-    } else {
-      console.error('Iframe or contentWindow is not available yet.');
-    }
-  }, [iframeRef]);
+    const iframe = document.getElementById('iframeRef');
+    iframe.contentWindow.postMessage(message, '*');
+  };
 
   const handleClickOpen = () => {
     setShowIframe(true);
@@ -166,7 +161,7 @@ export function Home() {
               <div className="mt-10">
                 <Button onClick={handleClickClose}>X</Button>
                 <iframe
-                  ref={iframeRef}
+                  id = "iframeRef"
                   src="https://virtualtryon-rust.vercel.app/"
                   width="430"
                   height="660"
