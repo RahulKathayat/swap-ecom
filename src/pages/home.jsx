@@ -20,7 +20,7 @@ export function Home() {
   const iframeRef = useRef(null);
 
   const sendDataToIframe = () => {
-    const message = 'Hello from parent!';
+    const message = 'https://swap-ecom.vercel.app/img/apparel.png';
     if (iframeRef.current) {
       // Send data to the iframe if it's loaded
       console.log("Sending data to iframe");
