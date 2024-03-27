@@ -22,10 +22,7 @@ export function Home() {
   const sendDataToIframe = () => {
     console.log("sending data to iframe");
     const message = 'Hello from parent!';
-    if (iframeRef.current) {
-      console.log("in process ");
-      iframeRef.current.contentWindow.postMessage(message, '*');
-    }
+    window.top.postMessage(message, '*');
     console.log("data sent");
   };
 
