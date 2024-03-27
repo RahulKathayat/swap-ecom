@@ -21,22 +21,10 @@ export function Home() {
 
   const sendDataToIframe = () => {
     const message = 'https://swap-ecom.vercel.app/img/apparel.png';
-    if (iframeRef.current  && iframeRef.current.contentWindow) {
+    if (iframeRef.current) {
       iframeRef.current.contentWindow.postMessage(message, '*');
     }
   };
-
-  useEffect(()=>{
-    if (iframeRef.current) {
-      iframeRef.current.addEventListener('load', sendDataToIframe);
-    }
-
-    return () => {
-      if (iframeRef.current) {
-        iframeRef.current.removeEventListener('load', handleIframeLoad);
-      }
-    };
-  },[]);
 
   const handleClickOpen = () => {
     setShowIframe(true);
@@ -184,6 +172,7 @@ export function Home() {
                   onLoad={() => {
                     // Once the iframe is loaded, it's safe to access its contentWindow
                     console.log('Iframe loaded');
+                    sendDataToIframe();
                   }}
                 />
               </div>
