@@ -28,7 +28,6 @@ export function Home() {
 
   const handleClickOpen = () => {
     setShowIframe(true);
-    sendDataToIframe();
   };
 
   const handleClickClose = () => {
@@ -173,6 +172,7 @@ export function Home() {
                   onLoad={() => {
                     // Once the iframe is loaded, it's safe to access its contentWindow
                     console.log('Iframe loaded');
+                    sendDataToIframe();
                   }}
                 />
               </div>
