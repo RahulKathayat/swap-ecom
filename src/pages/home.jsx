@@ -17,12 +17,15 @@ import { featuresData, teamData, contactData,wardrobeData } from "@/data";
 
 export function Home() {
   const [showIframe, setShowIframe] = useState(false);
-  const iframeRef = useRef();
+  const iframeRef = useRef(null);
 
   const sendDataToIframe = () => {
     console.log("sending data to iframe");
     const message = 'Hello from parent!';
-    window.top.postMessage(message, '*');
+    if (iframeRef.current) {
+      console.log("in process ");
+      iframeRef.current.contentWindow.postMessage(message, '*');
+    }
     console.log("data sent");
   };
 
