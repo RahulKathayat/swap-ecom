@@ -1,4 +1,4 @@
-import React,{useState,useRef} from "react";
+import React,{useState,useRef, useEffect} from "react";
 import {
   Card,
   CardBody,
@@ -21,10 +21,22 @@ export function Home() {
 
   const sendDataToIframe = () => {
     const message = 'https://swap-ecom.vercel.app/img/apparel.png';
-    if (iframeRef.current) {
+    if (iframeRef.current  && iframeRef.current.contentWindow) {
       iframeRef.current.contentWindow.postMessage(message, '*');
     }
   };
+
+  useEffect(()=>{
+    if (iframeRef.current) {
+      iframeRef.current.addEventListener('load', sendDataToIframe);
+    }
+
+    return () => {
+      if (iframeRef.current) {
+        iframeRef.current.removeEventListener('load', handleIframeLoad);
+      }
+    };
+  },[]);
 
   const handleClickOpen = () => {
     setShowIframe(true);
