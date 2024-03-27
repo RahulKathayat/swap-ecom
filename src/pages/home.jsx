@@ -23,7 +23,7 @@ export function Home() {
     const message = 'Hello from parent!';
     if (iframeRef.current && iframeRef.current.contentWindow) {
       console.log("sending the message");
-      iframeRef.current.contentWindow.postMessage(message, '*');
+      iframeRef.current.contentWindow.postMessage(message, 'https://virtualtryon-rust.vercel.app/');
     } else {
       console.error('Iframe or contentWindow is not available yet.');
     }
