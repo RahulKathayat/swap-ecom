@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useRef} from "react";
 import {
   Card,
   CardBody,
@@ -17,9 +17,16 @@ import { featuresData, teamData, contactData,wardrobeData } from "@/data";
 
 export function Home() {
   const [showIframe, setShowIframe] = useState(false);
+  const iframeRef = useRef();
+
+  const sendDataToIframe = () => {
+    const message = 'Hello from parent!';
+    iframeRef.current.contentWindow.postMessage(message, '*');
+  };
 
   const handleClickOpen = () => {
     setShowIframe(true);
+    sendDataToIframe();
   };
 
   const handleClickClose = () => {
@@ -156,6 +163,7 @@ export function Home() {
               <div className="mt-10">
                 <Button onClick={handleClickClose}>X</Button>
                 <iframe
+                  ref={iframeRef}
                   src="https://virtualtryon-rust.vercel.app/"
                   width="430"
                   height="660"
