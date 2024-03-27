@@ -17,11 +17,17 @@ import { featuresData, teamData, contactData,wardrobeData } from "@/data";
 
 export function Home() {
   const [showIframe, setShowIframe] = useState(false);
-  
+  const iframeRef = useRef(null);
+
   const sendDataToIframe = () => {
     const message = 'Hello from parent!';
-    const iframe = document.getElementById('iframeRef');
-    iframe.contentWindow.postMessage(message, '*');
+    if (iframeRef.current) {
+      // Send data to the iframe if it's loaded
+      console.log("Sending data to iframe");
+      iframeRef.current.contentWindow.postMessage(message, '*');
+    } else {
+      console.error('Iframe not loaded yet');
+    }
   };
 
   const handleClickOpen = () => {
@@ -161,14 +167,17 @@ export function Home() {
               <div className="mt-10">
                 <Button onClick={handleClickClose}>X</Button>
                 <iframe
-                  id = "iframeRef"
+                  // id = "iframeRef"
+                  ref={iframeRef}
                   src="https://virtualtryon-rust.vercel.app/"
                   width="430"
                   height="660"
                   title="example iframe"
                   onLoad={()=>{
                     console.log("iframe loaded");
-                    sendDataToIframe();
+                    setTimeout(() => {
+                      sendDataToIframe();
+                    }, 100);
                   }}
                 />
               </div>
