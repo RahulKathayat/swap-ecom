@@ -21,7 +21,9 @@ export function Home() {
 
   const sendDataToIframe = () => {
     const message = 'Hello from parent!';
-    iframeRef.current.contentWindow.postMessage(message, '*');
+    if (iframeRef.current) {
+      iframeRef.current.contentWindow.postMessage(message, '*');
+    }
   };
 
   const handleClickOpen = () => {
@@ -168,7 +170,10 @@ export function Home() {
                   width="430"
                   height="660"
                   title="example iframe"
-                  
+                  onLoad={() => {
+                    // Once the iframe is loaded, it's safe to access its contentWindow
+                    console.log('Iframe loaded');
+                  }}
                 />
               </div>
             )}
