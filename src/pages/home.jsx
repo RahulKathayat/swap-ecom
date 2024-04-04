@@ -53,7 +53,7 @@ export function Home() {
               </Typography>
               <br/>
               <Typography variant="h6" color="white" className="mt-4 opacity-80">
-              Swap envi - A revolutionary solution designed to transform the way clothing, shoes and accesories brands engage with their customers. Swap envi empowers these brands to implement cutting-edge AI technology, enhancing their online shopping experience and driving sales like never before.
+               Swap Envi - A revolutionary solution crafted by a Switzerland-based technology company, designed to revolutionize the way clothing brands interact with their customers. Swap empowers brands to integrate advanced AI technology, elevating their online shopping experience and unlocking unprecedented sales potential.
               </Typography>
             </div>
           </div>
