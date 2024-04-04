@@ -39,7 +39,7 @@ import {
       title: "Reduced Returns",
       icon: PlayIcon,
       description:
-        "Minimize return rates by empowering customers to make informed purchasing decisions through virtual try-on experiences.",
+        "Minimize return rates by empowering customers to make informed purchasing decisions through virtual try-on experiences, resulting in fewer instances of mismatched expectations and product dissatisfaction.",
     },
   ];
   
