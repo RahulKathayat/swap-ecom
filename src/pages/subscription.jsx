@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Typography } from '@material-tailwind/react';
 import SubscriptionCard from '@/widgets/cards/subscription-card';
 import { Footer } from '@/widgets/layout';
+import { toast } from 'react-hot-toast';
 import axios from 'axios';
 
 export function Subscription() {
@@ -41,13 +42,18 @@ export function Subscription() {
   useEffect(() =>{
     const fetchSubscription = async () =>{
       try{
+        toast.loading('Fetching Subscription');
         const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/admin/fetchSubscription`);
         // console.log(data.data.data);
         setSubscription(data.data.data);
         console.log("here is subscription listss:",data.data.data);
+        toast.dismiss();
+        toast.success('Success');
       }
       catch(e){
         console.log(e,"error fetching subscriptions");
+        toast.dismiss();
+        toast.error('Error fetching subscriptions');
       }
     };
     fetchSubscription();

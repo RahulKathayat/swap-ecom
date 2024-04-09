@@ -6,6 +6,7 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import axios from "axios";
 
@@ -39,6 +40,7 @@ export function SignUp() {
     }),
     onSubmit: async (values, helpers) => {
       try {
+        toast.loading('Registering...');
         console.log("clicked");
         console.log(values);
         await axios
@@ -46,21 +48,24 @@ export function SignUp() {
             .then((response) => {
               console.log(response);
               formik.resetForm();
-              alert(
-                "You have been registered successfully"
-              );
-               window.location.href = '/sign-in' ;
+              toast.dismiss();
+              toast.success("Registered successfully");
+              setTimeout(() => {
+                window.location.href = '/sign-in' ;
+              }, 1000);
             })
             .catch((error) => {
               console.log("Error registering the user ", error);
-              alert(
-                "Registration Failed an error occured while registering"
-              );
+              toast.dismiss();
+              toast.error("Registration Failed");
             });
-      } catch (err) {
-        helpers.setStatus({ success: false });
-        helpers.setErrors({ submit: err.message });
-        helpers.setSubmitting(false);
+          } 
+          catch (err) {
+            toast.dismiss();
+            toast.error("Registration Failed");
+            helpers.setStatus({ success: false });
+            helpers.setErrors({ submit: err.message });
+            helpers.setSubmitting(false);
       }
     }
   });

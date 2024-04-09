@@ -7,6 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import axios from "axios";
 
 export function SignIn() {
@@ -29,7 +30,7 @@ export function SignIn() {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        console.log("clicked");
+        toast.loading('Signing in...');
         console.log(values);
         await axios
             .post(`${import.meta.env.VITE_BASE_URL}/v1/owner/login`, values)
@@ -39,16 +40,20 @@ export function SignIn() {
                const accessToken = response.data.tokens.access.token;
                localStorage.setItem("refreshTok", refreshToken);
                localStorage.setItem("accessTok", accessToken);
-             alert('logged in successfully');
-               window.location.href = '/' ;
+               toast.dismiss();
+               toast.success('Signed In');
+               setTimeout(() => {  
+                 window.location.href = '/' ;
+               }, 1000);
             })
             .catch((error) => {
+              toast.dismiss();
+              toast.error('Error Occured');
               console.log("Error Signing in the user ", error);
-              alert(
-                "Sign in Failed an error occured while signing in "
-              );
             });
       } catch (err) {
+        toast.dismiss();
+        toast.error('Error Occured');
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
         helpers.setSubmitting(false);
