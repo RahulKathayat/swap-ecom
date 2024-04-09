@@ -169,7 +169,7 @@ export function Home() {
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
-                  src="https://virtualtryon-rust.vercel.app/"
+                  src={import.meta.env.VITE_IFRAME_URL}
                   width="430"
                   height="660"
                   title="example iframe"
