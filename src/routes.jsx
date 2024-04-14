@@ -1,4 +1,4 @@
-import { Home, Profile, SignIn, SignUp,Configure,Subscription } from "@/pages";
+import { Home, SignIn, SignUp,Configure,Subscription,IntegrationDocs ,ShopifyDocs,NonShopifyDocs} from "@/pages";
 
 export const routes = [
   {
@@ -25,6 +25,21 @@ export const routes = [
     name: "how to configure",
     path: "/configure",
     element: <Configure />,
+  },
+  {
+    name: "Integration Docs",
+    path: "/docs",
+    element: <IntegrationDocs />,
+  },
+  {
+    name: "shopify",
+    path: "/docs/shopify",
+    element: <ShopifyDocs />,
+  },
+  {
+    name: "nonshopify",
+    path: "/docs/nonshopify",
+    element: <NonShopifyDocs />,
   },
 ];
 

@@ -23,8 +23,7 @@ export function Navbar({ brandName, routes, action }) {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path, icon, href, target }) => {
-        if(name=='Sign In') return;
-        else if(name=='Sign Up') return;
+        if(name=='Sign In' || name=='Sign Up' || name=='shopify' || name=='nonshopify') return;
         return (
           <Typography
             key={name}
