@@ -158,20 +158,20 @@ export function Home() {
           <PageTitle heading="Try our Virtual Try-On">
           Click the 'Try It On' button below to experience it firsthand and witness the difference for yourself!
           </PageTitle>
-          <div style={{display:"flex",flexDirection:"row" , justifyContent:"space-evenly" ,alignItems:"center",marginTop:"30px"}}>
+          <div className="flex flex-col-reverse lg:flex-row justify-evenly items-center gap-5 lg:mt-30">
             <Card className="p-4">
                 <img src={'/img/apparel.png'}></img>
                 <Button className="" onClick={handleClickOpen} >Try On</Button>
             </Card>
             {showIframe && (
               <div className="mt-10">
-                <Button onClick={handleClickClose}>X</Button>
+                <div onClick={handleClickClose} style={{position:"relative",top:"22px",left:"2px",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></div>
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
                   src={import.meta.env.VITE_IFRAME_URL}
-                  width="430"
-                  height="660"
+                  width="410"
+                  height="620"
                   title="example iframe"
                   onLoad={()=>{
                     console.log("iframe loaded");
