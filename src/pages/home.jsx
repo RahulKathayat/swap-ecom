@@ -165,7 +165,7 @@ export function Home() {
             </Card>
             {showIframe && (
               <div className="mt-10">
-                <div onClick={handleClickClose} style={{position:"relative",top:"22px",left:"2px",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></div>
+                <span onClick={handleClickClose} style={{position:"relative",top:"22px",left:"2px",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></span>
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
