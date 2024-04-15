@@ -165,14 +165,13 @@ export function Home() {
             </Card>
             {showIframe && (
               <div className="mt-10">
-                <span onClick={handleClickClose} style={{position:"relative",left:"23em",top:"2.5em",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></span>
+                <Button onClick={handleClickClose} style={{position:"relative",left:"11em", bottom:"0.5em"}}>Close Try-On</Button>
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
                   src={import.meta.env.VITE_IFRAME_URL}
                   width="410"
                   height="660"
-                  className="border-2"
                   title="example iframe"
                   onLoad={()=>{
                     console.log("iframe loaded");
