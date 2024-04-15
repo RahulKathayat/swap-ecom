@@ -165,13 +165,14 @@ export function Home() {
             </Card>
             {showIframe && (
               <div className="mt-10">
-                <span onClick={handleClickClose} style={{position:"relative",top:"22px",left:"2px",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></span>
+                <span onClick={handleClickClose} style={{position:"relative",left:"23em",top:"2.5em",cursor:"pointer"}}><img src={"/img/cross.png"} className="w-10"/></span>
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
                   src={import.meta.env.VITE_IFRAME_URL}
                   width="410"
                   height="660"
+                  className="border-2"
                   title="example iframe"
                   onLoad={()=>{
                     console.log("iframe loaded");
