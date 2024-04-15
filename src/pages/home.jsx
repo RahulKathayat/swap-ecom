@@ -164,8 +164,8 @@ export function Home() {
                 <Button className="" onClick={handleClickOpen} >Try On</Button>
             </Card>
             {showIframe && (
-              <div className="mt-10">
-                <div className="w-full flex items-center justify-center"><Button onClick={handleClickClose} style={{position:"relative", bottom:"0.1em"}}>Close Try-On</Button></div>
+              <div className="mt-10 p-2">
+                <div className="w-full flex items-center justify-center"><Button onClick={handleClickClose}>Close Try-On</Button></div>
                 <iframe
                   // id = "iframeRef"
                   ref={iframeRef}
