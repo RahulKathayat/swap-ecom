@@ -171,7 +171,7 @@ export function Home() {
                   ref={iframeRef}
                   src={import.meta.env.VITE_IFRAME_URL}
                   width="410"
-                  height="660"
+                  height="680"
                   title="example iframe"
                   onLoad={()=>{
                     console.log("iframe loaded");
